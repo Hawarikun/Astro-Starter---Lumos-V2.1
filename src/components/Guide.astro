@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+---
+
+<div class="guide_wrap" id="guide">
+  <div class="guide_contain u-container">
+    <div class="guide_layout">
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+      <div class="guide_column"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  html .guide_wrap {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .guide_layout {
+    counter-reset: gridguides;
+    display: grid;
+    gap: var(--site--gutter);
+    grid-template-columns: repeat(var(--site--column-count), minmax(0, 1fr));
+  }
+
+  .guide_layout > div::before {
+    counter-increment: gridguides;
+    content: counter(gridguides);
+  }
+
+  .guide_column {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding: 0 0.6rem;
+    background: rgba(146, 146, 146, 0.06);
+    color: rgba(138, 138, 138, 0.5);
+  }
+</style>

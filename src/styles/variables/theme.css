@@ -1,0 +1,28 @@
+:root {
+    --_theme---background: var(--_color---light-100);
+    --_theme---text-color: var(--_color---brand-text);
+    --_theme---border: var(--_color---dark-900-020);
+
+    /* Primary Button */
+    --_theme---button-primary--background: var(--_color---dark-900);
+    --_theme---button-primary--border: var(--_theme---button-primary--background);
+    --_theme---button-primary--text: var(--_color---light-100);
+    --_theme---button-primary--background-hover: var(--_color---light-100);
+    --_theme---button-primary--border-hover: var(--_theme---button-primary--background-hover);
+    --_theme---button-primary--text-hover: var(--_color---dark-900);
+
+    /* Secondary Button */
+    --_theme---button-secondary--background: var(--_color---light-100);
+    --_theme---button-secondary--border: var(--_theme---button-secondary--background);
+    --_theme---button-secondary--text: var(--_color---dark-900);
+    --_theme---button-secondary--background-hover: var(--_color---dark-900);
+    --_theme---button-secondary--border-hover: var(--_theme---button-secondary--background-hover);
+    --_theme---button-secondary--text-hover: var(--_color---light-100);
+
+    /* Button Link */
+    --_theme---button-link--text: var(--_color---dark-900);
+    --_theme---button-link--text-hover: var(--_color---brand-500);
+
+    /* Nav */
+    --_theme---nav--background: var(--_color---light-100);
+}

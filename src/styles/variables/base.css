@@ -1,0 +1,88 @@
+:root {
+    /* Default */
+    --site--viewport-max: 120;
+    --site--viewport-min: 30;
+    --site--margin: clamp(1.25 * 1rem, ((1.25 - ((3 - 1.25) / (var(--site--viewport-max) - var(--site--viewport-min)) * var(--site--viewport-min))) * 1rem + ((3 - 1.25) / (var(--site--viewport-max) - var(--site--viewport-min))) * 100vw), 3 * 1rem);
+    --site--gutter: clamp(1.5 * 1rem, ((1.5 - ((2 - 1.5) / (var(--site--viewport-max) - var(--site--viewport-min)) * var(--site--viewport-min))) * 1rem + ((2 - 1.5) / (var(--site--viewport-max) - var(--site--viewport-min))) * 100vw), 2 * 1rem);
+    --site--column-count: 12;
+    --site--column-width: calc((min(var(--max-width--main), 100vw - var(--site--margin) * 2) - (var(--site--gutter) * (var(--site--column-count) - 1))) / var(--site--column-count));
+
+    /* max-width */
+    --_max-width---small: 40rem;
+    --_max-width---main: calc(var(--site--viewport-max) * 1rem);
+    --_max-width---full: 100%;
+
+    /* Radius */
+    --_radius---small: 0.5rem;
+    --_radius---main: 1rem;
+    --_radius---round: 100vw;
+
+    /* Border Width */
+    --_border-width---main: 0.0625rem;
+
+    /* color */
+    --_color---transparent: transparent;
+    --_color---light-100: #ffffff;
+    --_color---light-100-020: color-mix(in srgb, var(--_color---light-100) 20%, transparent);
+    --_color---light-200: #f3f3f3;
+    --_color---dark-800: #121212;
+    --_color---dark-900: #000000;
+    --_color---dark-900-020: color-mix(in srgb, var(--_color---dark-900) 20%, transparent);
+    --_color---brand-100: color-mix(in srgb, var(--_color---brand-500), white 80%);
+    --_color---brand-200: color-mix(in srgb, var(--_color---brand-500), white 60%);
+    --_color---brand-300: color-mix(in srgb, var(--_color---brand-500), white 40%);
+    --_color---brand-400: color-mix(in srgb, var(--_color---brand-500), white 20%);
+    --_color---brand-500: #1e90ff;
+    --_color---brand-600: color-mix(in srgb, var(--_color---brand-500), black 20%);
+    --_color---brand-700: color-mix(in srgb, var(--_color---brand-500), black 40%);
+    --_color---brand-800: color-mix(in srgb, var(--_color---brand-500), black 60%);
+    --_color---brand-900: color-mix(in srgb, var(--_color---brand-500), black 80%);
+    --_color---brand-text: var(--_color---dark-900);
+    --_color---brand-text-o20: color-mix(in srgb, var(--_color---brand-text) 20%, transparent);
+
+    /* nav */
+    --_nav---max-width--outer: var(var(--_max-width---main));
+    --_nav---max-width--inner: var(var(--_max-width---main));
+    --_nav---height: 4.5rem;
+    --_nav---height-total: var(var(--_nav---height));
+    --_nav---spacing-outer-vertical: var(--site--margin);
+    --_nav---spacing-outer-horizontal: var(--site--margin);
+    --_nav---spacing-inner-horizontal: 1.5rem;
+    --_nav---radius: var(--_radius---main);
+    --_nav---hamburger-thickness: var(--_border-width---main);
+    --_nav---hamburger-gap: 0.5rem;
+    --_nav---menu-open-duration: var(--nav-duration, 400ms);
+    --_nav---menu-close-duration: var(--nav-duration, 400ms);
+    --_nav---dropdown-open-duration: var(--nav-duration, 400ms);
+    --_nav---dropdown-close-duration: var(--nav-duration, 400ms);
+
+    /* Column Width */
+    --_column-width---plus-gutter: calc(var(--_column-width---1) + var(--site--gutter));
+    --_column-width---1: var(--site--column-width);
+    --_column-width---2: calc((var(--site--column-width) * 2) + var(--site--gutter));
+    --_column-width---3: calc((var(--site--column-width) * 3) + (var(--site--gutter) * 2));
+    --_column-width---4: calc((var(--site--column-width) * 4) + (var(--site--gutter) * 3));
+    --_column-width---5: calc((var(--site--column-width) * 5) + (var(--site--gutter) * 4));
+    --_column-width---6: calc((var(--site--column-width) * 6) + (var(--site--gutter) * 5));
+    --_column-width---7: calc((var(--site--column-width) * 7) + (var(--site--gutter) * 6));
+    --_column-width---8: calc((var(--site--column-width) * 8) + (var(--site--gutter) * 7));
+    --_column-width---9: calc((var(--site--column-width) * 9) + (var(--site--gutter) * 8));
+    --_column-width---10: calc((var(--site--column-width) * 10) + (var(--site--gutter) * 9));
+    --_column-width---11: calc((var(--site--column-width) * 11) + (var(--site--gutter) * 10));
+    --_column-width---12: calc((var(--site--column-width) * 12) + (var(--site--gutter) * 11));
+
+    /* Column Margin */
+    --_column-margin---0: 0;
+    --_column-margin---1: calc(var(--_column-width---plus-gutter) * 1);
+    --_column-margin---2: calc(var(--_column-width---plus-gutter) * 2);
+    --_column-margin---3: calc(var(--_column-width---plus-gutter) * 3);
+    --_column-margin---4: calc(var(--_column-width---plus-gutter) * 4);
+    --_column-margin---5: calc(var(--_column-width---plus-gutter) * 5);
+    --_column-margin---6: calc(var(--_column-width---plus-gutter) * 6);
+    --_column-margin---7: calc(var(--_column-width---plus-gutter) * 7);
+    --_column-margin---8: calc(var(--_column-width---plus-gutter) * 8);
+    --_column-margin---9: calc(var(--_column-width---plus-gutter) * 9);
+    --_column-margin---10: calc(var(--_column-width---plus-gutter) * 10);
+    --_column-margin---11: calc(var(--_column-width---plus-gutter) * 11);
+    --_column-margin---12: calc(var(--_column-width---plus-gutter) * 12);
+}
