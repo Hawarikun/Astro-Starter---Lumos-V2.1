@@ -1,0 +1,65 @@
+---
+import Button from "./Button.astro";
+import "../../styles/global.css";
+---
+
+<div class="nav_links_component">
+    <ul class="nav_links_wrap">
+        <li class="nav_links_item">
+            <a href="#" class="nav_links_link"> About </a>
+        </li>
+        <li class="nav_links_item">
+            <a href="#" class="nav_links_link"> Contact </a>
+        </li>
+    </ul>
+    <ul class="nav_actions_wrap">
+        <li class="nav_buttons_item">
+            <Button Variant="primary" />
+        </li>
+    </ul>
+</div>
+
+<style>
+    .nav_links_component {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        gap: var(--_spacing---space--3);
+        flex: 1;
+    }
+
+    .nav_links_wrap,
+    .nav_actions_wrap {
+        display: flex;
+        align-items: center;
+        gap: var(--_spacing---space--3);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav_links_wrap {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .nav_actions_wrap {
+        flex-shrink: 0;
+    }
+
+    .nav_links_item {
+        display: flex;
+        justify-items: start;
+    }
+
+    .nav_links_link {
+        width: 100%;
+        height: 100%;
+
+        padding: 0 var(--_spacing---space--3);
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        z-index: 2;
+    }
+</style>

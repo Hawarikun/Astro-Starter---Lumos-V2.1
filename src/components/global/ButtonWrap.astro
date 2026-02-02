@@ -1,0 +1,17 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class=`u-button-group ${className}`>
+    <slot class="u-display-contents" />
+</div>
+
+<style>
+    .u-button-group {
+        display: flex;
+        align-items: center;
+        justify-content: var(--_alignment---direction, start);
+        gap: var(--_spacing---space--2);
+        margin-top: var(--_spacing---space--6);
+    }
+</style>

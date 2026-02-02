@@ -3,6 +3,8 @@
 @import "./variables/typography.css";
 @import "./variables/spacing.css";
 @import "./variables/theme.css";
+@import "./custom.css";
+@import "./variables/text-style.css";
 
 /* Global styles */
 :root {
@@ -221,6 +223,18 @@ label:has(input:focus-visible) [data-outline] {
     display: block;
 }
 
+/* Container */
+.u-container {
+    container: threshold-large / inline-size;
+
+    position: relative;
+    margin: 0 auto;
+    z-index: 1;
+
+    width: calc(100% - var(--site--margin) * 2);
+    max-width: var(--max-width--main);
+}
+
 /* Responsive Above */
 @container threshold-large (width >=62em) {
     .u-order-unset-above {
@@ -369,15 +383,3 @@ label:has(input:focus-visible) [data-outline] {
 }
 
 /* End */
-
-.u-container {
-    container-name: threshold-large;
-    container-type: inline-size;
-
-    position: relative;
-    margin: 0 auto;
-    z-index: 1;
-
-    width: calc(100% - var(--site--margin) * 2);
-    max-width: var(--max-width--main);
-}

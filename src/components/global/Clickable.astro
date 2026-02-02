@@ -1,0 +1,39 @@
+---
+import "../../styles/global.css";
+
+const { Text, Link, Type = "link", Target } = Astro.props;
+---
+
+<div class="clickable_wrap u-cover-absolute">
+    {
+        Type === "link" ? (
+            <a href={Link} target={Target} class="clickable_link">
+                <span class="clickable_text u-sr-only">{Text}</span>
+            </a>
+        ) : (
+            <button class="clickable_btn">
+                <span class="clickable_text u-sr-only">{Text}</span>
+            </button>
+        )
+    }
+</div>
+
+<style>
+    .clickable_wrap,
+    .clickable_link,
+    .clickable_btn {
+        border-radius: inherit;
+    }
+
+    .clickable_wrap.u-cover-absolute {
+        z-index: 3;
+    }
+
+    .clickable_link,
+    .clickable_btn {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

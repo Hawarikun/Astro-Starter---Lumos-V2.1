@@ -7,6 +7,9 @@
     --site--column-count: 12;
     --site--column-width: calc((min(var(--max-width--main), 100vw - var(--site--margin) * 2) - (var(--site--gutter) * (var(--site--column-count) - 1))) / var(--site--column-count));
 
+    /* Column Count */
+    --_column-count---value: var(--site--column-count);
+
     /* max-width */
     --_max-width---small: 40rem;
     --_max-width---main: calc(var(--site--viewport-max) * 1rem);
@@ -19,6 +22,11 @@
 
     /* Border Width */
     --_border-width---main: 0.0625rem;
+
+    /* Focus */
+    --focus--width: 0.125rem;
+    --focus--offset-inner: -0.125rem;
+    --focus--offset-outer: 0.1857rem;
 
     /* color */
     --_color---transparent: transparent;

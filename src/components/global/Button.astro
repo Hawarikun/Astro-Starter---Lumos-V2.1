@@ -1,0 +1,56 @@
+---
+import Clickable from "./Clickable.astro";
+import "../../styles/global.css";
+const {
+    Text = "Button Text",
+    Link = "#",
+    Type = "button",
+    Target,
+    Variant = "primary",
+} = Astro.props;
+---
+
+<div class="button_main_wrap" data-variant={Variant}>
+    <slot name="left_icon" />
+    <Clickable Text={Text} Link={Link} Type={Type} Target={Target} />
+    <div class="button_main_text">{Text}</div>
+    <slot name="right_icon" />
+</div>
+
+<style>
+    .button_main_wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--_spacing---space--1);
+        background-color: var(--_theme---button-primary--background);
+        border: 1px solid var(--_theme---button-primary--border);
+        color: var(--_theme---button-primary--text);
+        line-height: var(--_text-style---line-height--tiny);
+        padding: 0.75rem 1.25rem;
+
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
+
+    .button_main_wrap:hover {
+        background-color: var(--_theme---button-primary--background-hover);
+        border: 1px solid var(--_theme---button-primary--border-hover);
+        color: var(--_theme---button-primary--text-hover);
+    }
+
+    [data-variant="secondary"].button_main_wrap {
+        background-color: var(--_theme---button-secondary--background);
+        border: 1px solid var(--_theme---button-secondary--border);
+        color: var(--_theme---button-secondary--text);
+    }
+    [data-variant="secondary"].button_main_wrap:hover {
+        background-color: var(--_theme---button-secondary--background-hover);
+        border: 1px solid var(--_theme---button-secondary--border-hover);
+        color: var(--_theme---button-secondary--text-hover);
+    }
+</style>

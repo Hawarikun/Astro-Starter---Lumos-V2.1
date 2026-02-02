@@ -1,0 +1,248 @@
+---
+import "../../styles/global.css";
+---
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-dynamic-year]").forEach(function (el) {
+            el.textContent = new Date().getFullYear().toString();
+        });
+    });
+</script>
+
+<footer class="footer_wrap">
+    <h2 class="footer_title u-sr-only">Footer</h2>
+    <div class="footer_contain u-container">
+        <nav class="footer_layout u-grid-above">
+            <div class="footer_content">
+                <a href="" class="footer_logo"></a>
+                <div
+                    class="footer_social_wrap u-flex-vertical-nowrap u-gap-row-3"
+                >
+                    <h3 class="footer_social_title u-text-style-h6">
+                        Follow Us
+                    </h3>
+                    <ul class="footer_social_list">
+                        <li class="footer_social_item">
+                            <a href="#" class="footer_social_link">Facebook</a>
+                        </li>
+                        <li class="footer_social_item">
+                            <a href="#" class="footer_social_link">Twitter</a>
+                        </li>
+                        <li class="footer_social_item">
+                            <a href="#" class="footer_social_link">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_nav">
+                <div
+                    class="footer_group_wrap u-flex-vertical-nowrap u-gap-row-5"
+                >
+                    <h3 class="footer_group_title u-text-style-h6">
+                        Heading Text
+                    </h3>
+                    <ul class="footer_group_list">
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="footer_group_wrap u-flex-vertical-nowrap u-gap-row-5"
+                >
+                    <h3 class="footer_group_title u-text-style-h6">
+                        Heading Text
+                    </h3>
+                    <ul class="footer_group_list">
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="footer_group_wrap u-flex-vertical-nowrap u-gap-row-5"
+                >
+                    <h3 class="footer_group_title u-text-style-h6">
+                        Heading Text
+                    </h3>
+                    <ul class="footer_group_list">
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="footer_group_wrap u-flex-vertical-nowrap u-gap-row-5"
+                >
+                    <h3 class="footer_group_title u-text-style-h6">
+                        Heading Text
+                    </h3>
+                    <ul class="footer_group_list">
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                        <li class="footer_group_item">
+                            <a href="#" class="footer_group_link"
+                                >Link Text Here</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="footer_bottom_wrap">
+        <div class="footer_bottom_contain u-container">
+            <div class="footer_bottom_layout">
+                <p class="footer_copyright">
+                    &copy; <span data-dynamic-year></span> Your Company. All rights
+                    reserved.
+                </p>
+
+                <ul class="footer_bottom_list">
+                    <li class="footer_bottom_item">
+                        <a href="" class="footer_bottom_link_wrap"
+                            >Privacy Policy</a
+                        >
+                    </li>
+                    <li class="footer_bottom_item">
+                        <a href="" class="footer_bottom_link_wrap"
+                            >Terms & Conditions</a
+                        >
+                    </li>
+                    <li class="footer_bottom_item">
+                        <a href="" class="footer_bottom_link_wrap">Site Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer_contain {
+        padding-top: var(--_spacing---section--main);
+        padding-bottom: var(--_spacing---section--main);
+    }
+
+    .footer_layout {
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: clamp(2.5rem, 2.07143rem + 2.14286vw, 4rem) 1rem;
+    }
+
+    .footer_logo_wrap {
+        width: 8rem;
+    }
+
+    .footer_nav {
+        display: grid;
+        flex: 500 1 auto;
+        grid-auto-columns: 1fr;
+        column-gap: var(--site--gutter);
+        row-gap: var(--_spacing---space--7);
+        grid-template-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+        grid-column: span 8;
+    }
+
+    .footer_bottom_list {
+        display: flex;
+        align-items: center;
+        gap: var(--_spacing---space--4);
+        flex-wrap: wrap;
+    }
+
+    .footer_bottom_layout {
+        display: flex;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        flex-flow: wrap;
+        place-content: center space-between;
+        align-items: center;
+        column-gap: var(--_spacing---space--4);
+        row-gap: var(--_spacing---space--4);
+    }
+
+    .footer_content {
+        display: grid;
+        height: 100%;
+        flex: 1 1 auto;
+        grid-auto-columns: 1fr;
+        column-gap: var(--site--gutter);
+        grid-template-rows: auto;
+        row-gap: inherit;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+        grid-column: span 4;
+    }
+
+    .footer_social_wrap {
+        margin-top: auto;
+    }
+
+    .footer_group_list {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        row-gap: var(--_spacing---space--3);
+    }
+
+    .footer_social_list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: var(--_spacing---space--3);
+    }
+</style>
