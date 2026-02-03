@@ -4,62 +4,99 @@ import "../../styles/global.css";
 ---
 
 <div class="nav_links_component">
-    <ul class="nav_links_wrap">
-        <li class="nav_links_item">
-            <a href="#" class="nav_links_link"> About </a>
-        </li>
-        <li class="nav_links_item">
-            <a href="#" class="nav_links_link"> Contact </a>
-        </li>
-    </ul>
-    <ul class="nav_actions_wrap">
-        <li class="nav_buttons_item">
-            <Button Variant="primary" />
-        </li>
-    </ul>
+  <ul class="nav_links_wrap">
+    <li class="nav_links_item">
+      <a href="#" class="nav_links_link"> About </a>
+    </li>
+    <li class="nav_links_item">
+      <a href="#" class="nav_links_link"> Contact </a>
+    </li>
+  </ul>
+  <ul class="nav_actions_wrap">
+    <li class="nav_buttons_item">
+      <Button Variant="primary" />
+    </li>
+  </ul>
 </div>
 
 <style>
-    .nav_links_component {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        gap: var(--_spacing---space--3);
-        flex: 1;
-    }
+  .nav_links_component {
+    display: flex;
+    flex-flow: column;
+    flex: 1 1 0%;
+    column-gap: var(--_spacing---space--3);
+  }
 
-    .nav_links_wrap,
-    .nav_actions_wrap {
-        display: flex;
-        align-items: center;
-        gap: var(--_spacing---space--3);
-        list-style: none;
-        margin: 0;
-        padding: 0;
+  .nav_links_wrap {
+    flex: 1 1 0%;
+  }
+
+  .nav_actions_wrap {
+    display: flex;
+    flex-flow: column;
+    flex: 0 0 auto;
+  }
+
+  .nav_links_item {
+    display: flex;
+  }
+
+  .nav_links_link {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    padding-top: var(--_spacing---space--2);
+    padding-right: 0px;
+    padding-bottom: var(--_spacing---space--2);
+    padding-left: 0px;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 0%;
+    column-gap: var(--_spacing---space--2);
+    cursor: pointer;
+    color: inherit;
+    outline-offset: var(--focus--offset-inner) !important;
+  }
+
+  .nav_buttons_item {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .nav_buttons_item.is-main {
+    margin-top: var(--_spacing---space--6);
+    margin-bottom: var(--_spacing---space--3);
+  }
+
+  @container (width > 64rem) {
+    .nav_links_component {
+      display: flex;
+      flex-flow: row;
     }
 
     .nav_links_wrap {
-        flex: 1;
-        justify-content: center;
-    }
-
-    .nav_actions_wrap {
-        flex-shrink: 0;
-    }
-
-    .nav_links_item {
-        display: flex;
-        justify-items: start;
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: stretch;
     }
 
     .nav_links_link {
-        width: 100%;
-        height: 100%;
-
-        padding: 0 var(--_spacing---space--3);
-        text-decoration: none;
-        color: inherit;
-        position: relative;
-        z-index: 2;
+      height: 100%;
+      padding-top: 0px;
+      padding-right: var(--_spacing---space--3);
+      padding-bottom: 0px;
+      padding-left: var(--_spacing---space--3);
     }
+
+    .nav_actions_wrap {
+      flex-flow: row;
+    }
+  }
 </style>

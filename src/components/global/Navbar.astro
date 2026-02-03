@@ -3,439 +3,435 @@ import Menu from "./Menu.astro";
 import "../../styles/global.css";
 ---
 
+<script>
+  const navMenu = document.querySelector(".w-nav-menu");
+  const navButton = document.querySelector(".w-nav-button");
+
+  navButton?.addEventListener("click", () => {
+    navButton.classList.toggle("w--open");
+    if (navButton.classList.contains("w--open")) {
+      navButton.setAttribute("aria-expanded", "true");
+      navMenu?.setAttribute("data-nav-menu-open", "true");
+    } else {
+      navButton.setAttribute("aria-expanded", "false");
+      navMenu?.removeAttribute("data-nav-menu-open");
+    }
+  });
+</script>
+
 <div class="nav_component">
-    <div role="banner" class="nav_desktop_wrap">
-        <div class="nav_desktop_contain">
-            <div class="nav_desktop_layout">
-                <a
-                    aria-label="Home Page"
-                    aria-current="page"
-                    href="#"
-                    class="nav_desktop_logo"></a>
-                <nav role="navigation" class="nav_desktop_menu_wrap">
-                    <Menu />
-                </nav>
-            </div>
-        </div>
+  <div role="banner" class="nav_desktop_wrap">
+    <div class="nav_desktop_contain">
+      <div class="nav_desktop_layout">
+        <a
+          aria-label="Home Page"
+          aria-current="page"
+          href="#"
+          class="nav_desktop_logo"></a>
+        <nav role="navigation" class="nav_desktop_menu_wrap">
+          <Menu />
+        </nav>
+      </div>
     </div>
-    <div class="nav_mobile_wrap">
-        <div class="nav_mobile_contain">
-            <div class="nav_mobile_layout">
-                <a
-                    aria-label="Home Page"
-                    aria-current="page"
-                    href="/"
-                    class="nav_mobile_logo"></a>
-                <nav role="navigation" class="nav_mobile_menu">
-                    <div class="nav_mobile_menu_wrap">
-                        <div class="nav_mobile_menu_scroll">
-                            <div class="nav_mobile_menu_contain">
-                                <Menu />
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <div
-                    class="nav_button_wrap w-nav-button"
-                    style="-webkit-user-select: text;"
-                    aria-label="menu"
-                    role="button"
-                    tabindex="0"
-                    aria-haspopup="menu"
-                    aria-expanded="false"
-                >
-                    <div class="nav_button_layout">
-                        <div class="nav_button_line"></div>
-                        <div class="nav_button_line"></div>
-                    </div>
-                </div>
+  </div>
+  <div class="nav_mobile_wrap">
+    <div class="nav_mobile_contain">
+      <div class="nav_mobile_layout">
+        <a
+          aria-label="Home Page"
+          aria-current="page"
+          href="/"
+          class="nav_mobile_logo"></a>
+        <nav role="navigation" class="nav_mobile_menu_wrap w-nav-menu">
+          <div class="nav_mobile_menu_scroll">
+            <div class="nav_mobile_menu_contain">
+              <Menu />
             </div>
+          </div>
+        </nav>
+        <div
+          class="nav_button_wrap w-nav-button"
+          style="-webkit-user-select: text;"
+          aria-label="menu"
+          role="button"
+          tabindex="0"
+          aria-haspopup="menu"
+          aria-expanded="false"
+        >
+          <div class="nav_button_layout">
+            <div class="nav_button_line"></div>
+            <div class="nav_button_line"></div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="nav_dropdown_backdrop"></div>
-    <div class="nav_menu_backdrop"></div>
+  </div>
 </div>
+<div class="nav_dropdown_backdrop"></div>
+<div class="nav_menu_backdrop"></div>
 
 <style>
-    /* Custom */
-    .nav_component {
-        position: sticky;
-        inset: 0% 0% auto;
-        z-index: 1000;
-        background-color: rgba(0, 0, 0, 0);
-        pointer-events: none;
-        container-type: inline-size;
-    }
+  /* Custom */
+  nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-    .nav_desktop_wrap {
-        position: relative;
-        z-index: 1;
-        display: none;
-        margin-top: var(--_nav---spacing-outer-vertical);
-        background-color: transparent;
-    }
+  .nav_component {
+    position: sticky;
+    inset: 0% 0% auto;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    container-type: inline-size;
+  }
 
-    .nav_desktop_contain {
-        max-width: var(--_nav---max-width-outer);
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: var(--_nav---spacing-inner-horizontal);
-        padding-left: var(--_nav---spacing-inner-horizontal);
-        border-top-left-radius: var(--_nav---radius);
-        border-top-right-radius: var(--_nav---radius);
-        border-bottom-left-radius: var(--_nav---radius);
-        border-bottom-right-radius: var(--_nav---radius);
-        background-color: var(--_theme---nav--background);
-        width: calc(100% - var(--_nav---spacing-outer-horizontal) * 2);
-    }
+  .nav_desktop_wrap {
+    position: relative;
+    z-index: 1;
+    display: none;
+    margin-top: var(--_nav---spacing-outer-vertical);
+    background-color: transparent;
+  }
 
-    .nav_desktop_layout {
-        position: static;
-        display: flex;
-        width: 100%;
-        height: var(--_nav---height);
-        max-width: var(--_nav---max-width-inner);
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        justify-content: space-between;
-        column-gap: var(--_spacing---space--3);
-        pointer-events: auto;
-    }
+  .nav_desktop_contain {
+    max-width: var(--_nav---max-width-outer);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--_nav---spacing-inner-horizontal);
+    padding-left: var(--_nav---spacing-inner-horizontal);
+    border-top-left-radius: var(--_nav---radius);
+    border-top-right-radius: var(--_nav---radius);
+    border-bottom-left-radius: var(--_nav---radius);
+    border-bottom-right-radius: var(--_nav---radius);
+    background-color: var(--_theme---nav--background);
+    width: calc(100% - var(--_nav---spacing-outer-horizontal) * 2);
+  }
 
-    .nav_mobile_contain {
-        padding: 0 var(--_nav---spacing-inner-horizontal);
-        margin: 0 auto;
+  .nav_desktop_layout {
+    position: static;
+    display: flex;
+    width: 100%;
+    height: var(--_nav---height);
+    max-width: var(--_nav---max-width-inner);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    justify-content: space-between;
+    column-gap: var(--_spacing---space--3);
+    pointer-events: auto;
+  }
 
-        width: calc(100% - (var(--site--margin) * 2));
-        max-width: var(--_max-width---main);
-        background: var(--_color---light-100);
-    }
+  .nav_desktop_logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 6rem;
+    justify-content: flex-start;
+    align-items: center;
+    outline-offset: var(--focus--offset-inner);
+  }
 
-    .nav_mobile_layout {
-        display: flex;
-        align-items: stretch;
-        justify-content: space-between;
-        gap: var(--_spacing---space--3);
+  .nav_desktop_menu_wrap {
+    z-index: 1;
+    display: flex;
+    flex: 1 1 0%;
+  }
 
-        position: static;
+  .nav_mobile_wrap {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--_nav---spacing-outer-vertical);
+    background-color: transparent;
+  }
 
-        height: var(--_nav---height);
-        width: 100%;
-        pointer-events: auto;
-    }
+  .nav_mobile_contain {
+    max-width: var(--_nav---max-width-outer);
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - (var(--_nav---spacing-outer-horizontal) * 2));
+  }
 
-    .nav_desktop_logo {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        width: 6rem;
-        justify-content: flex-start;
-        align-items: center;
-        outline-offset: var(--focus--offset-inner);
-    }
+  .nav_mobile_layout {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    height: var(--_nav---height);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-right: var(--_nav---spacing-inner-horizontal);
+    padding-bottom: 0px;
+    padding-left: var(--_nav---spacing-inner-horizontal);
+    justify-content: space-between;
+    column-gap: var(--_spacing---space--3);
+    border-top-left-radius: var(--_nav---radius);
+    border-top-right-radius: var(--_nav---radius);
+    border-bottom-left-radius: var(--_nav---radius);
+    border-bottom-right-radius: var(--_nav---radius);
+    background-color: var(--_theme---nav--background);
+    pointer-events: auto;
+  }
 
-    .nav_desktop_menu_wrap {
-        z-index: 1;
-        display: flex;
-        flex: 1 1 0%;
-    }
+  .nav_mobile_logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 6rem;
+    justify-content: flex-start;
+    align-items: center;
+    outline-offset: var(--focus--offset-inner);
+  }
 
-    .nav_mobile_wrap {
-        position: relative;
-        z-index: 1;
-        margin-top: var(--_nav---spacing-outer-vertical);
-        background-color: transparent;
-    }
+  .nav_mobile_menu_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 
-    .nav_mobile_contain {
-        max-width: var(--_nav---max-width-outer);
-        margin-right: auto;
-        margin-left: auto;
-        width: calc(100% - var(--_nav---spacing-outer-horizontal) * 2);
-    }
+    inset: 0% 0% auto;
+    max-width: var(--_nav---max-width-outer);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--_nav---height);
+    border-top-left-radius: var(--_nav---radius);
+    border-top-right-radius: var(--_nav---radius);
+    border-bottom-left-radius: var(--_nav---radius);
+    border-bottom-right-radius: var(--_nav---radius);
+    background-color: var(--_theme---nav--background);
+    pointer-events: auto;
+    text-align: left;
+    width: calc(100% - var(--_nav---spacing-outer-horizontal) * 2);
+    transform: none !important;
+  }
 
-    .nav_mobile_layout {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        width: 100%;
-        height: var(--_nav---height);
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: 0px;
-        padding-right: var(--_nav---spacing-inner-horizontal);
-        padding-bottom: 0px;
-        padding-left: var(--_nav---spacing-inner-horizontal);
-        justify-content: space-between;
-        column-gap: var(--_spacing---space--3);
-        border-top-left-radius: var(--_nav---radius);
-        border-top-right-radius: var(--_nav---radius);
-        border-bottom-left-radius: var(--_nav---radius);
-        border-bottom-right-radius: var(--_nav---radius);
-        background-color: var(--_theme---nav--background);
-        pointer-events: auto;
-    }
+  .nav_mobile_menu_scroll {
+    padding-right: var(--_nav---spacing-inner-horizontal);
+    padding-left: var(--_nav---spacing-inner-horizontal);
+    overflow: hidden auto;
+    max-height: calc(
+      100svh - var(--_nav---height-total) -
+        var(--_nav---spacing-outer-vertical) * 2
+    );
+  }
 
-    .nav_mobile_logo {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        width: 6rem;
-        justify-content: flex-start;
-        align-items: center;
-        outline-offset: var(--focus--offset-inner);
-    }
+  .nav_mobile_menu_contain {
+    padding-top: var(--_spacing---space--3);
+    padding-bottom: var(--_spacing---space--8);
+  }
 
-    .nav_mobile_menu_wrap {
-        inset: 0% 0% auto;
-        max-width: var(--_nav---max-width-outer);
-        margin-right: auto;
-        margin-left: auto;
-        padding-top: var(--_nav---height);
-        border-top-left-radius: var(--_nav---radius);
-        border-top-right-radius: var(--_nav---radius);
-        border-bottom-left-radius: var(--_nav---radius);
-        border-bottom-right-radius: var(--_nav---radius);
-        background-color: var(--_theme---nav--background);
-        pointer-events: auto;
-        text-align: left;
-        width: calc(100% - var(--_nav---spacing-outer-horizontal) * 2);
-        transform: none !important;
-    }
+  .nav_button_wrap {
+    z-index: 2;
+    width: 2rem;
+    padding: 0px;
+    flex: 0 0 auto;
+    outline-width: var(--focus--width) !important;
+    outline-color: var(--_theme---text) !important;
+    outline-offset: var(--focus--offset-inner) !important;
+  }
 
-    .nav_mobile_menu_scroll {
-        padding-right: var(--_nav---spacing-inner-horizontal);
-        padding-left: var(--_nav---spacing-inner-horizontal);
-        overflow: hidden auto;
-        max-height: calc(
-            100svh - var(--_nav---height-total) -
-                var(--_nav---spacing-outer-vertical) * 2
-        );
-    }
+  .nav_button_wrap.w--open {
+    background-color: rgba(0, 0, 0, 0);
+    color: inherit;
+  }
 
-    .nav_mobile_menu_contain {
-        padding-top: var(--_spacing---space--3);
-        padding-bottom: var(--_spacing---space--8);
-    }
+  .nav_button_layout {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--_nav---hamburger-gap);
+    row-gap: var(--_nav---hamburger-gap);
+  }
 
-    .nav_button_wrap {
-        z-index: 2;
-        width: 2rem;
-        padding: 0px;
-        flex: 0 0 auto;
-        outline-width: var(--focus--width) !important;
-        outline-color: var(--_theme---text) !important;
-        outline-offset: var(--focus--offset-inner) !important;
-    }
+  .nav_button_line {
+    width: 100%;
+    height: var(--_nav---hamburger-thickness);
+    flex: 0 0 auto;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    background-color: currentcolor;
+  }
 
+  @media screen and (max-width: 991px) {
     .nav_button_wrap.w--open {
-        background-color: rgba(0, 0, 0, 0);
-        color: inherit;
+      background-color: rgba(200, 200, 200, 0);
+      color: inherit;
     }
+  }
+  /* END */
 
-    .nav_button_layout {
-        position: relative;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-        column-gap: var(--_nav---hamburger-gap);
-        row-gap: var(--_nav---hamburger-gap);
+  body:has(.nav_component .w-nav-button.w--open):not(
+      :has(.nav_desktop_wrap:not(.w-condition-invisible))
+    ) {
+    overflow: hidden;
+  }
+  /* on smaller screens */
+  @media (width < 65em) {
+    /* disable scroll when mobile menu is open */
+    body:has(.nav_component .w-nav-button.w--open) {
+      overflow: hidden;
     }
-
-    .nav_button_line {
-        width: 100%;
-        height: var(--_nav---hamburger-thickness);
-        flex: 0 0 auto;
-        transition-property: all;
-        transition-duration: 200ms;
-        transition-timing-function: ease;
-        background-color: currentcolor;
-    }
-
-    @media screen and (max-width: 991px) {
-        .nav_button_wrap.w--open {
-            background-color: rgba(200, 200, 200, 0);
-            color: inherit;
-        }
-    }
-    /* END */
-
-    body:has(.nav_component .w-nav-button.w--open):not(
-            :has(.nav_desktop_wrap:not(.w-condition-invisible))
-        ) {
-        overflow: hidden;
-    }
-    /* on smaller screens */
-    @media (width < 65em) {
-        /* disable scroll when mobile menu is open */
-        body:has(.nav_component .w-nav-button.w--open) {
-            overflow: hidden;
-        }
-    }
-    /* on larger screens */
-    @container (min-width: 65em) {
-        /* show desktop nav & dropdown backdrop */
-        .nav_desktop_wrap,
-        .nav_dropdown_backdrop {
-            display: block;
-        }
-        /* hide mobile nav & mobile menu backdrop */
-        .nav_desktop_wrap:not(.w-condition-invisible) ~ .nav_mobile_wrap,
-        .nav_desktop_wrap:not(.w-condition-invisible) ~ .nav_menu_backdrop {
-            display: none;
-        }
-    }
-    /* dropdown list: initial state */
-    html .nav_dropdown_component > .w-dropdown-list {
-        /* removes display none to enable css transitions */
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr);
-        /* sets list to 0 height by default */
-        grid-template-rows: 0fr;
-        transition: grid-template-rows var(--_nav---dropdown-close-duration);
-        /* makes list content not focusable when closed */
-        visibility: hidden;
-        opacity: 0;
-    }
-    /* makes list content focusable when opened */
-    html .nav_dropdown_component > .w-dropdown-list.w--open {
-        visibility: visible;
-        opacity: 1;
-    }
-    /* sets list child to overflow hidden to enable css height transition */
-    .nav_dropdown_component > .w-dropdown-list > * {
-        overflow: hidden;
-    }
-    /* set open state of dropdown list */
-    .nav_dropdown_component:has(> .w-dropdown-toggle[aria-expanded="true"])
-        > .w-dropdown-list {
-        --_nav---dropdown-close-duration: var(--_nav---dropdown-open-duration);
-        grid-template-rows: 1fr;
-    }
-    /* on desktop, delay dropdown opening if another dropdown is open */
-    .nav_desktop_wrap:has(
-            .nav_dropdown_component
-                > .w-dropdown-toggle.w--open[aria-expanded="false"]
-        )
-        .nav_dropdown_component:has(> .w--open[aria-expanded="true"])
-        > .w-dropdown-list {
-        transition-delay: var(--_nav---dropdown-close-duration);
-    }
-    /* reveal dropdown backdrop when dropdown open */
+  }
+  /* on larger screens */
+  @container (min-width: 65em) {
+    /* show desktop nav & dropdown backdrop */
+    .nav_desktop_wrap,
     .nav_dropdown_backdrop {
-        transition: opacity var(--_nav---dropdown-close-duration);
+      display: block;
     }
-    body:has(.nav_dropdown_component > [aria-expanded="true"])
-        .nav_dropdown_backdrop {
-        opacity: 1;
+    /* hide mobile nav & mobile menu backdrop */
+    .nav_desktop_wrap:not(.w-condition-invisible) ~ .nav_mobile_wrap,
+    .nav_desktop_wrap:not(.w-condition-invisible) ~ .nav_menu_backdrop {
+      display: none;
     }
-    /* rotate arrow inside open dropdown */
-    .w-dropdown-toggle[aria-expanded="true"] .nav_links_svg {
-        transform: rotate(-180deg);
+  }
+  /* dropdown list: initial state */
+  html .nav_dropdown_component > .w-dropdown-list {
+    /* removes display none to enable css transitions */
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    /* sets list to 0 height by default */
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--_nav---dropdown-close-duration);
+    /* makes list content not focusable when closed */
+    visibility: hidden;
+    opacity: 0;
+  }
+  /* makes list content focusable when opened */
+  html .nav_dropdown_component > .w-dropdown-list.w--open {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* sets list child to overflow hidden to enable css height transition */
+  .nav_dropdown_component > .w-dropdown-list > * {
+    overflow: hidden;
+  }
+  /* set open state of dropdown list */
+  .nav_dropdown_component:has(> .w-dropdown-toggle[aria-expanded="true"])
+    > .w-dropdown-list {
+    --_nav---dropdown-close-duration: var(--_nav---dropdown-open-duration);
+    grid-template-rows: 1fr;
+  }
+  /* on desktop, delay dropdown opening if another dropdown is open */
+  .nav_desktop_wrap:has(
+      .nav_dropdown_component
+        > .w-dropdown-toggle.w--open[aria-expanded="false"]
+    )
+    .nav_dropdown_component:has(> .w--open[aria-expanded="true"])
+    > .w-dropdown-list {
+    transition-delay: var(--_nav---dropdown-close-duration);
+  }
+  /* reveal dropdown backdrop when dropdown open */
+  .nav_dropdown_backdrop {
+    transition: opacity var(--_nav---dropdown-close-duration);
+  }
+  body:has(.nav_dropdown_component > [aria-expanded="true"])
+    .nav_dropdown_backdrop {
+    opacity: 1;
+  }
+  /* rotate arrow inside open dropdown */
+  .w-dropdown-toggle[aria-expanded="true"] .nav_links_svg {
+    transform: rotate(-180deg);
+  }
+  /* fade out other dropdown links when link is hovered */
+  @media (hover: hover) and (pointer: fine) {
+    body:has(.nav_dropdown_item:hover) .nav_dropdown_item:not(:hover) > * > * {
+      opacity: 0.5;
     }
-    /* fade out other dropdown links when link is hovered */
-    @media (hover: hover) and (pointer: fine) {
-        body:has(.nav_dropdown_item:hover)
-            .nav_dropdown_item:not(:hover)
-            > *
-            > * {
-            opacity: 0.5;
-        }
+  }
+  /* animate first hamburger line when opened */
+  .nav_component .w-nav-button.w--open > * > :first-child {
+    transform: translateY(
+        calc(
+          var(--_nav---hamburger-thickness) * 0.5 +
+            var(--_nav---hamburger-gap) * 0.5
+        )
+      )
+      rotate(-45deg);
+  }
+  /* animate second hamburger line when opened */
+  .nav_component .w-nav-button.w--open > * > :last-child {
+    transform: translateY(
+        calc(
+          var(--_nav---hamburger-thickness) * -0.5 +
+            var(--_nav---hamburger-gap) * -0.5
+        )
+      )
+      rotate(45deg);
+  }
+  /* reveal mobile menu backdrop on menu open */
+  .nav_menu_backdrop {
+    transition: opacity var(--_nav---menu-close-duration);
+  }
+  .nav_component:has(.w-nav-button.w--open) .nav_menu_backdrop {
+    opacity: 1;
+  }
+  /* menu animations */
+  @keyframes menuOpen {
+    from {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
-    /* animate first hamburger line when opened */
-    .nav_component .w-nav-button.w--open > * > :first-child {
-        transform: translateY(
-                calc(
-                    var(--_nav---hamburger-thickness) * 0.5 +
-                        var(--_nav---hamburger-gap) * 0.5
-                )
-            )
-            rotate(-45deg);
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    /* animate second hamburger line when opened */
-    .nav_component .w-nav-button.w--open > * > :last-child {
-        transform: translateY(
-                calc(
-                    var(--_nav---hamburger-thickness) * -0.5 +
-                        var(--_nav---hamburger-gap) * -0.5
-                )
-            )
-            rotate(45deg);
+  }
+  @keyframes menuClose {
+    from {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    /* reveal mobile menu backdrop on menu open */
-    .nav_menu_backdrop {
-        transition: opacity var(--_nav---menu-close-duration);
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
-    .nav_component:has(.w-nav-button.w--open) .nav_menu_backdrop {
-        opacity: 1;
-    }
-    /* menu animations */
-    @keyframes menuOpen {
-        from {
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        }
-        to {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-    }
-    @keyframes menuClose {
-        from {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-        to {
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        }
-    }
-    /* menu open */
-    .nav_component:has(.w-nav-button.w--open) .w-nav-menu {
-        animation: menuOpen var(--_nav---menu-open-duration) ease-in-out
-            forwards;
-    }
-    /* menu close */
-    .nav_component:has(.w-nav-button:not(.w--open)) .w-nav-menu {
-        animation: menuClose var(--_nav---menu-close-duration) ease-in-out
-            forwards;
-    }
-    /* position overflow to top of screen */
-    .nav_component .w-nav-overlay {
-        top: 0;
-        min-height: 100vh;
-    }
-    /* search focus underline */
-    .nav_search_wrap:has(input:focus-visible) {
-        border-color: var(--_theme---text);
-    }
-    /* open dropdown on mobile */
-    .nav_mobile_wrap [data-open-on-mobile] > .w-dropdown-toggle {
-        display: none;
-    }
-    .nav_mobile_wrap [data-open-on-mobile] > .w-dropdown-list {
-        visibility: visible;
-        opacity: 1;
-        display: block;
-        grid-template-rows: 1fr;
-    }
-    /* Rotate Nav Banner Arrow When External Link */
-    a[target="_blank"] .nav_banner_svg {
-        transform: rotate(-45deg);
-    }
-    /* nav banner */
-    html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(
-            .hide-nav-banner
-        ) {
-        --_nav---height-total: calc(
-            var(--_nav---banner-height) + var(--_nav---height)
-        );
-    }
-    .hide-nav-banner .nav_banner_wrap {
-        display: none;
-    }
-    .wf-design-mode .nav_mobile_menu_wrap {
-        width: 100%;
-    }
+  }
+  /* menu open */
+  .nav_component:has(.w-nav-button.w--open) .w-nav-menu {
+    animation: menuOpen var(--_nav---menu-open-duration) ease-in-out forwards;
+  }
+  /* menu close */
+  .nav_component:has(.w-nav-button:not(.w--open)) .w-nav-menu {
+    animation: menuClose var(--_nav---menu-close-duration) ease-in-out forwards;
+  }
+  /* position overflow to top of screen */
+  .nav_component .w-nav-overlay {
+    top: 0;
+    min-height: 100vh;
+  }
+  /* search focus underline */
+  .nav_search_wrap:has(input:focus-visible) {
+    border-color: var(--_theme---text);
+  }
+  /* open dropdown on mobile */
+  .nav_mobile_wrap [data-open-on-mobile] > .w-dropdown-toggle {
+    display: none;
+  }
+  .nav_mobile_wrap [data-open-on-mobile] > .w-dropdown-list {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    grid-template-rows: 1fr;
+  }
+  /* Rotate Nav Banner Arrow When External Link */
+  a[target="_blank"] .nav_banner_svg {
+    transform: rotate(-45deg);
+  }
+  /* nav banner */
+  html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(.hide-nav-banner) {
+    --_nav---height-total: calc(
+      var(--_nav---banner-height) + var(--_nav---height)
+    );
+  }
+  .hide-nav-banner .nav_banner_wrap {
+    display: none;
+  }
+  .wf-design-mode .nav_mobile_menu_wrap {
+    width: 100%;
+  }
 </style>

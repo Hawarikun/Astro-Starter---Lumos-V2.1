@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Guide from "../components/Guide.astro";
 import Navbar from "../components/global/Navbar.astro";
 import Footer from "../components/global/Footer.astro";
+import { Image } from "astro:assets";
+
+import heroImage from "../assets/hero.avif";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -14,7 +17,44 @@ import Footer from "../components/global/Footer.astro";
     <Navbar />
     <div class="page_main">
       <!-- Your Code Here -->
+      <div class="section_wrap u-section u-min-height-full u-theme-dark">
+        <div class="section_bg">
+          <Image
+            src={heroImage}
+            alt="Hero Background"
+            class="section_img u-cover-absolute"
+          />
+        </div>
+        <div class="section_contain u-container">
+          <div class="section_layout u-flex-vertical-nowrap u-alignment-center">
+            <h1 class="section_title u-text-style-display">Welcome</h1>
+            <p class="section_text u-text-style-medium">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatibus autem labore eius. Quam eum molestias nemo dolorum
+              dolor quaerat totam necessitatibus dolorem qui cupiditate, eaque
+              incidunt. Magnam, et cumque. Minus.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <Footer />
   </div>
 </Layout>
+
+<style>
+  .section_bg {
+    position: absolute;
+    inset: 0;
+    z-index: auto;
+    pointer-events: none;
+  }
+
+  .section_contain {
+    padding: var(--_spacing---section--main) 0;
+  }
+
+  .section_layout {
+    flex: 1;
+  }
+</style>

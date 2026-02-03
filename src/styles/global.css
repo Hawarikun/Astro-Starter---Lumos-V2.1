@@ -92,6 +92,7 @@ label {
     text-wrap: inherit;
     margin-top: 0;
     margin-bottom: 0;
+    color: var(--_theme---text-color);
 }
 
 select:has(option[value=""]:checked) {
@@ -221,18 +222,6 @@ label:has(input:focus-visible) [data-outline] {
 
 .clickable_wrap a[href="#"]~button {
     display: block;
-}
-
-/* Container */
-.u-container {
-    container: threshold-large / inline-size;
-
-    position: relative;
-    margin: 0 auto;
-    z-index: 1;
-
-    width: calc(100% - var(--site--margin) * 2);
-    max-width: var(--max-width--main);
 }
 
 /* Responsive Above */
